@@ -1,13 +1,12 @@
-FROM golang 
+FROM golang
 
-ADD . /go/src/github.com/AirtonLira/simple-api-golang/
-COPY . /go/src/github.com/AirtonLira/simple-api-golang/
+RUN mkdir /app
+ADD . /app
 
-WORKDIR /go/src/github.com/AirtonLira/simple-api-golang
+WORKDIR /app
+RUN go get github.com/gorilla/mux  
+RUN go build -o main .
 
-RUN go mod init github.com/AirtonLira/simple-api-golang
-RUN go get github.com/gorilla/mux
-
-ENTRYPOINT [ "go run /go/src/github.com/AirtonLira/simple-api-golang/" ]
+CMD ["/app/main"]
 
 EXPOSE 3550
