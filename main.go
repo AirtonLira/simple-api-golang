@@ -19,6 +19,7 @@ var pessoas = []Pessoa{
 	Pessoa{Name: "João"},
 	Pessoa{Name: "Thais"},
 	Pessoa{Name: "Airton"},
+	Pessoa{Name: "Valeria"},
 }
 
 func getAll(w http.ResponseWriter, r *http.Request) {
