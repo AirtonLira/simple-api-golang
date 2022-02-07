@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  
+  golang-api:
+    build:
+      context: .
+    container_name: golang-api
+    restart: always
+    ports:
+      - "3550:3550"
+
+  db:
+    image: postgres:11.9-alpine
+    container_name: db
+    restart: always
+    environment:
+      POSTGRES_DB: dev
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
